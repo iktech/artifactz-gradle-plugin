@@ -1,4 +1,5 @@
 val tagName = System.getenv("RELEASE_TAG")
+group = "io.iktech"
 version = tagName ?: "1.1-SNAPSHOT"
 
 plugins {

@@ -8,4 +8,4 @@
  */
 
 rootProject.name = "artifactz-gradle-plugin"
-include("plugin")
+include("artifactz-gradle-plugin")

@@ -31,5 +31,5 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          files: plugin/build/test-results/**/*.xml
+          files: artifactz-gradle-plugin/build/test-results/**/*.xml
           github_token: ${{ secrets.GITHUB_TOKEN }}
