@@ -8,7 +8,7 @@ open class PushArtifactExtension {
     /**
      * Web Service URL, by default points to the production instance
      */
-    var serverUrl = "https://artifactor.artifactz.io"
+    var serverUrl: String? = null
 
     /**
      * Access token with correct write artifact rights
@@ -33,7 +33,7 @@ open class PushArtifactExtension {
     /**
      * Stage, where task will publish artifact to
      */
-    var stage = "Development"
+    var stage: String? = null
 
     /**
      * Optional version to push

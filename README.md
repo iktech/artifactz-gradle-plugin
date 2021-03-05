@@ -33,12 +33,17 @@ In order for the plugin to work the following gradle properties should be define
 
 Name | Description
 ---|---
-artifactzServerUrl | The artifactz.io web service URL. By default, if omitted it points to https://artifactor.artifactz.io
-artifactzStage | The stage name from where plugin will try to get the artifact version
-artifactzApiToken | The artifactz.io API token allowing to read artifactz (for resolving only), or modify artifactz in order to run the publishArtifact and pushArtifact tasks
-artifactzProxyUrl | The proxy URL if build is executed from behind the proxy
-artifactzProxyUsername | The proxy username if proxy requires authentication
-artifactzProxyPassword | The proxy password if proxy requires authentication
+artifactz.serverUrl | The artifactz.io web service URL. By default, if omitted it points to https://artifactor.artifactz.io
+artifactz.stage | The stage name from where plugin will try to get the artifact version
+artifactz.apiToken | The artifactz.io API token allowing to read artifactz (for resolving only), or modify artifactz in order to run the publishArtifact and pushArtifact tasks
+artifactz.proxyUrl | The proxy URL if build is executed from behind the proxy
+artifactz.proxyUsername | The proxy username if proxy requires authentication
+artifactz.proxyPassword | The proxy password if proxy requires authentication
+
+The plugin will try to resolve the above properties in the way they described, i.e. in the form artifactz.<propertyName>, 
+with artifactz as a prefix. If it cannot find the properties in the above form plugin will attempt to resolve them in the form
+<prefix>_<propertyName>. Eventually, if that fails, plugin will attempt to resolve it as <prefix><PropertyName> with the propertyName
+first letter capitalized.
 
 ## Tasks
 The plugin also provides two additional tasks

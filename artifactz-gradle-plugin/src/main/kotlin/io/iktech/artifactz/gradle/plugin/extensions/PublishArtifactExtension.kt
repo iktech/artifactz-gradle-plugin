@@ -8,7 +8,7 @@ open class PublishArtifactExtension {
     /**
      * Web Service URL, by default points to the production instance
      */
-    var serverUrl = "https://artifactor.artifactz.io"
+    var serverUrl: String? = null
 
     /**
      * Access token with correct write artifact rights
@@ -33,7 +33,7 @@ open class PublishArtifactExtension {
     /**
      * Stage, where task will publish artifact to
      */
-    var stage = "Development"
+    var stage: String? = null
 
     /**
      * Optional stage description
