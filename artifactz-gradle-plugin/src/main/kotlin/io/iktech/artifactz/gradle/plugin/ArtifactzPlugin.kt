@@ -12,8 +12,6 @@ import io.iktech.artifactz.gradle.plugin.tasks.PushArtifactTask
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.internal.impldep.org.apache.maven.plugin.PluginConfigurationException
-import org.gradle.internal.impldep.org.apache.maven.plugin.PluginParameterException
 import org.slf4j.LoggerFactory
 
 /**

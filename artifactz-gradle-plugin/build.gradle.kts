@@ -7,15 +7,15 @@ plugins {
     `java-gradle-plugin`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.4.31"
+    id("org.jetbrains.kotlin.jvm") version "1.8.21"
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "0.12.0"
+    id("com.gradle.plugin-publish") version "1.2.0"
 }
 
 repositories {
     // Use JCenter for resolving dependencies.
     mavenLocal()
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -24,7 +24,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.iktech:artifactz-client:1.1.2")
+    implementation("io.iktech:artifactz-client:1.1.4")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.
@@ -35,13 +35,18 @@ dependencies {
 }
 
 gradlePlugin {
-    // Define the plugin
-    val artifactzPlugin by plugins.creating {
-        id = "io.iktech.artifactz"
-        displayName = "Artifactz.io Plugin"
-        description = "Plugin allowing dynamically resolve dependencies versions, tracked by the artifactz.io service"
-        implementationClass = "io.iktech.artifactz.gradle.plugin.ArtifactzPlugin"
-        version = tagName ?: "1.0-SNAPSHOT"
+    website.set("https://github.com/iktech/artifactz-gradle-plugin/blob/master/README.md")
+    vcsUrl.set("https://github.com/iktech/artifactz-gradle-plugin")
+    plugins {
+        create("artifactzPlugin") {
+            id = "io.iktech.artifactz"
+            displayName = "Artifactz.io Plugin"
+            description =
+                "Plugin allowing dynamically resolve dependencies versions, tracked by the artifactz.io service"
+            implementationClass = "io.iktech.artifactz.gradle.plugin.ArtifactzPlugin"
+            version = tagName ?: "1.0-SNAPSHOT"
+            tags.set(listOf("version", "artifact", "artifactz", "java"))
+        }
     }
 }
 
@@ -65,10 +70,4 @@ val functionalTest by tasks.registering(Test::class) {
 tasks.check {
     // Run the functional tests as part of `check`
     dependsOn(functionalTest)
-}
-
-pluginBundle {
-    website = "https://github.com/iktech/artifactz-gradle-plugin/blob/master/README.md"
-    vcsUrl = "https://github.com/iktech/artifactz-gradle-plugin"
-    tags = listOf("version", "artifact", "artifactz", "java")
 }
