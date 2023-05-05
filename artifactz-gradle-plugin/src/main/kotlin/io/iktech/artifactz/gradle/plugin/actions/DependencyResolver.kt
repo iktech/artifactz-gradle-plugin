@@ -31,9 +31,7 @@ class DependencyResolver @Inject constructor(
     /**
      * Instance of the artifactz.io service client
      */
-    private val client: ServiceClient = ServiceClientBuilder
-                .withBaseUrl(serverUrl)
-                .withApiToken(accessToken)
+    private val client: ServiceClient = ServiceClientBuilder(serverUrl, accessToken)
                 .withProxyUrl(proxyUrl)
                 .withProxyUsername(proxyUsername)
                 .withProxyPassword(proxyPassword)

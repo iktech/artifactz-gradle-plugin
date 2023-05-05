@@ -21,9 +21,7 @@ open class PublishArtifactTask @Inject constructor(
 
     @TaskAction
     fun processDependencies() {
-        val client = ServiceClientBuilder
-            .withBaseUrl(extension.serverUrl)
-            .withApiToken(extension.accessToken)
+        val client = ServiceClientBuilder(extension.serverUrl, extension.accessToken)
             .withProxyUrl(extension.proxyUrl)
             .withProxyUsername(extension.proxyUsername)
             .withProxyPassword(extension.proxyPassword)
@@ -32,16 +30,16 @@ open class PublishArtifactTask @Inject constructor(
             .provideFeedback(FeedbackImpl(logger))
             .build();
 
-        if (extension.type.toUpperCase() != "JAR" &&
-            extension.type.toUpperCase() != "WAR" &&
-            extension.type.toUpperCase() != "EAR" &&
+        if (extension.type.uppercase() != "JAR" &&
+            extension.type.uppercase() != "WAR" &&
+            extension.type.uppercase() != "EAR" &&
             extension.type != "DockerImage") {
             throw GradleException("Incorrect artifact type specified: " + extension.type)
         }
 
         var groupId: String? = null
         var artifactId: String? = null
-        if (extension.type.toUpperCase() == "JAR" || extension.type.toUpperCase() == "WAR" || extension.type.toUpperCase() == "EAR") {
+        if (extension.type.uppercase() == "JAR" || extension.type.uppercase() == "WAR" || extension.type.uppercase() == "EAR") {
             groupId = project.group as String
             artifactId = project.name
         }

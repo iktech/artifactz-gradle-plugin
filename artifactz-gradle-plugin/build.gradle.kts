@@ -24,7 +24,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.iktech:artifactz-client:1.1.4")
+    implementation("io.iktech:artifactz-client:1.1.5")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.

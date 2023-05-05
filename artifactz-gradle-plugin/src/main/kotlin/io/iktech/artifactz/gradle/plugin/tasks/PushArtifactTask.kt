@@ -21,9 +21,7 @@ open class PushArtifactTask @Inject constructor(
 
     @TaskAction
     fun pushArtifact() {
-        val client = ServiceClientBuilder
-            .withBaseUrl(extension.serverUrl)
-            .withApiToken(extension.accessToken)
+        val client = ServiceClientBuilder(extension.serverUrl, extension.accessToken)
             .withProxyUrl(extension.proxyUrl)
             .withProxyUsername(extension.proxyUsername)
             .withProxyPassword(extension.proxyPassword)

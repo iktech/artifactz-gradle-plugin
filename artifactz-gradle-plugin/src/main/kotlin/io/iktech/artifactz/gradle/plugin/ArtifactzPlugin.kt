@@ -107,7 +107,7 @@ class ArtifactzPlugin: Plugin<Project> {
         if (property == null) {
             property = project.properties[PROPERTY_PREFIX + "_" + name] as String?
             if (property == null) {
-                property = project.properties["$PROPERTY_PREFIX${name.capitalize()}"] as String?
+                property = project.properties["$PROPERTY_PREFIX${name.replaceFirstChar(Char::uppercase)}"] as String?
             }
         }
 
