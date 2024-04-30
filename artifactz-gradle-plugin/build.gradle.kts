@@ -7,9 +7,9 @@ plugins {
     `java-gradle-plugin`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.23"
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "1.2.0"
+    id("com.gradle.plugin-publish") version "1.2.1"
 }
 
 repositories {
@@ -24,7 +24,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.iktech:artifactz-client:1.1.5")
+    implementation("io.iktech:artifactz-client:1.2.2")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.
