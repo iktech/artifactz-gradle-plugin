@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 /**
  * This action is taking configuration dependencies, detects if any of them are incomplete, i.e. do not have version defined
- * and query artifactor.artifactz.io service in attempt to get the version of the artifact from the specified stage,
+ * and query api.artifactz.io service in attempt to get the version of the artifact from the specified stage,
  * in case it is registered there.
  * @param serverUrl the artifactz.io web service URL
  * @param accessToken the API token with 'read artifacts' access

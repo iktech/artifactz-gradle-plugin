@@ -21,7 +21,7 @@ class ArtifactzPluginFunctionalTest {
         val projectDir = File("build/functionalTest")
         projectDir.mkdirs()
         projectDir.resolve("gradle.properties").writeText("""
-artifactz_serverUrl=https://artifactor.uat.artifactz.io
+artifactz_serverUrl=https://api.uat.artifactz.io
 artifactz_apiToken=$apiToken
             """)
         projectDir.resolve("settings.gradle").writeText("")
@@ -69,7 +69,7 @@ public class Test {
         val projectDir = File("build/functionalTest")
         projectDir.mkdirs()
         projectDir.resolve("gradle.properties").writeText("""
-artifactz_serverUrl=https://artifactor.uat.artifactz.io
+artifactz_serverUrl=https://api.uat.artifactz.io
 artifactz_apiToken=$apiToken
             """)
         projectDir.resolve("settings.gradle").writeText("""
@@ -127,7 +127,7 @@ dependencies {
         val projectDir = File("build/functionalTest")
         projectDir.mkdirs()
         projectDir.resolve("gradle.properties").writeText("""
-artifactzServerUrl=https://artifactor.uat.artifactz.io
+artifactzServerUrl=https://api.uat.artifactz.io
 artifactzApiToken=$apiToken
             """)
         projectDir.resolve("settings.gradle").writeText("""

@@ -31,7 +31,7 @@ class ArtifactzPlugin: Plugin<Project> {
         logger.info("******* Applying ArtifactzPlugin")
 
         // By default, we use production instance of the artifactz.io service
-        val serverUrl = readProperty(project, "serverUrl", "https://artifactor.artifactz.io")
+        val serverUrl = readProperty(project, "serverUrl", "https://api.artifactz.io")
 
         // By default, we try to retrieve version details from the `Development' stage
         val stage = readProperty(project, "stage", "Development")
