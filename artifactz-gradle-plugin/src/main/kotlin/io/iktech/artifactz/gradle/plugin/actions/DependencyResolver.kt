@@ -36,7 +36,7 @@ class DependencyResolver @Inject constructor(
                 .withProxyUsername(proxyUsername)
                 .withProxyPassword(proxyPassword)
                 .withSender("gradle-plugin")
-                .withUserAgent("Artifactz Gradle Plugin/1.0.0")
+                .withUserAgent("Artifactz Gradle Plugin/1.1.1")
                 .provideFeedback(FeedbackImpl(logger))
                 .build()
 

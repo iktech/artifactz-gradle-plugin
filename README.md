@@ -9,7 +9,7 @@ To resolve the artifact version include the plugin into the list of the applied
 plugins of the gradle project, for example.
 ```groovy
 plugins {
-    id 'io.iktech.artifactz' version '1.0.3'
+    id 'io.iktech.artifactz' version '1.1.1'
     id 'java'
 //  ...    
 }

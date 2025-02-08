@@ -26,7 +26,7 @@ open class PushArtifactTask @Inject constructor(
             .withProxyUsername(extension.proxyUsername)
             .withProxyPassword(extension.proxyPassword)
             .withSender("gradle-plugin")
-            .withUserAgent("Artifactz Gradle Plugin/1.0.0")
+            .withUserAgent("Artifactz Gradle Plugin/1.1.1")
             .provideFeedback(FeedbackImpl(logger))
             .build();
 

@@ -82,7 +82,7 @@ plugins {
 }
 
 group = 'io.iktech'
-version = '1.0.0-SNAPSHOT'
+version = '1.1.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -140,7 +140,7 @@ plugins {
 }
 
 group = 'io.iktech'
-version = '1.0.0-SNAPSHOT'
+version = '1.1.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
