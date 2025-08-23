@@ -1,13 +1,13 @@
 val tagName = System.getenv("RELEASE_TAG")
 group = "io.iktech"
-version = tagName ?: "1.3-SNAPSHOT"
+version = tagName ?: "1.4-SNAPSHOT"
 
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "2.1.10"
+    id("org.jetbrains.kotlin.jvm") version "2.2.10"
     id("maven-publish")
     id("com.gradle.plugin-publish") version "1.3.1"
 }
@@ -24,7 +24,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.iktech:artifactz-client:1.3.1")
+    implementation("io.iktech:artifactz-client:1.4.0")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.
