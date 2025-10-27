@@ -1,15 +1,27 @@
 val tagName = System.getenv("RELEASE_TAG")
 group = "io.iktech"
-version = tagName ?: "1.4-SNAPSHOT"
+version = tagName ?: "1.1-SNAPSHOT"
 
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "2.2.10"
+    id("org.jetbrains.kotlin.jvm") version "2.2.21"
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "1.3.1"
+    id("com.gradle.plugin-publish") version "2.0.0"
+}
+
+
+java {
+    sourceCompatibility=JavaVersion.VERSION_17
+    targetCompatibility=JavaVersion.VERSION_17
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }
 
 repositories {
@@ -24,7 +36,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.iktech:artifactz-client:1.4.0")
+    implementation("io.iktech:artifactz-client:1.4.5")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.
@@ -41,8 +53,7 @@ gradlePlugin {
         create("artifactzPlugin") {
             id = "io.iktech.artifactz"
             displayName = "Artifactz.io Plugin"
-            description =
-                "Plugin allowing dynamically resolve dependencies versions, tracked by the artifactz.io service"
+            description = "Plugin allowing dynamically resolve dependencies versions, tracked by the artifactz.io service"
             implementationClass = "io.iktech.artifactz.gradle.plugin.ArtifactzPlugin"
             version = tagName ?: "1.1-SNAPSHOT"
             tags.set(listOf("version", "artifact", "artifactz", "java"))
