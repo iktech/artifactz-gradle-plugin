@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.utils.CommandFallback
+
 val tagName = System.getenv("RELEASE_TAG")
 group = "io.iktech"
 version = tagName ?: "1.1-SNAPSHOT"
@@ -50,20 +52,21 @@ gradlePlugin {
     website.set("https://github.com/iktech/artifactz-gradle-plugin/blob/master/README.md")
     vcsUrl.set("https://github.com/iktech/artifactz-gradle-plugin")
     plugins {
-        create("artifactzPlugin") {
+        create("artifactzPlugin", Action {
             id = "io.iktech.artifactz"
             displayName = "Artifactz.io Plugin"
             description = "Plugin allowing dynamically resolve dependencies versions, tracked by the artifactz.io service"
             implementationClass = "io.iktech.artifactz.gradle.plugin.ArtifactzPlugin"
             version = tagName ?: "1.1-SNAPSHOT"
             tags.set(listOf("version", "artifact", "artifactz", "java"))
-        }
+        })
     }
 }
 
 // Add a source set for the functional test suite
-val functionalTestSourceSet = sourceSets.create("functionalTest") {
-}
+val functionalTestSourceSet = sourceSets.create("functionalTest", Action {
+
+})
 
 gradlePlugin.testSourceSets(functionalTestSourceSet)
 configurations["functionalTestImplementation"].extendsFrom(configurations["testImplementation"])

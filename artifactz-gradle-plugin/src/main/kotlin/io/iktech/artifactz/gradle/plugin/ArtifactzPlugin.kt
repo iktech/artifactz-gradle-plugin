@@ -45,22 +45,13 @@ class ArtifactzPlugin: Plugin<Project> {
         val proxyPassword = readProperty(project, "proxyPassword")
 
         val publishArtifactExtension = project.extensions.create("publishArtifact", PublishArtifactExtension::class.java)
-        val pushArtifactExtension = project.extensions.create("pushArtifact", PushArtifactExtension::class.java)
 
         if (publishArtifactExtension.serverUrl == null) {
             publishArtifactExtension.serverUrl = serverUrl
         }
 
-        if (pushArtifactExtension.serverUrl == null) {
-            pushArtifactExtension.serverUrl = serverUrl
-        }
-
         if (publishArtifactExtension.stage == null) {
             publishArtifactExtension.stage = stage
-        }
-
-        if (pushArtifactExtension.stage == null) {
-            pushArtifactExtension.stage = stage
         }
 
         if (publishArtifactExtension.accessToken == null) {
@@ -80,6 +71,16 @@ class ArtifactzPlugin: Plugin<Project> {
         }
 
         project.tasks.register("publishArtifact", PublishArtifactTask::class.java, publishArtifactExtension)
+
+        val pushArtifactExtension = project.extensions.create("pushArtifact", PushArtifactExtension::class.java)
+
+        if (pushArtifactExtension.serverUrl == null) {
+            pushArtifactExtension.serverUrl = serverUrl
+        }
+
+        if (pushArtifactExtension.stage == null) {
+            pushArtifactExtension.stage = stage
+        }
 
         if (pushArtifactExtension.accessToken == null) {
             pushArtifactExtension.accessToken = apiToken
