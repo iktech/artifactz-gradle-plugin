@@ -6,6 +6,7 @@ import io.iktech.artifactz.gradle.plugin.client.FeedbackImpl
 import io.iktech.artifactz.gradle.plugin.extensions.PushArtifactExtension
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
+import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.TaskAction
 import org.slf4j.LoggerFactory
 import javax.inject.Inject
@@ -14,6 +15,7 @@ import javax.inject.Inject
  * Push artifact task can be used to push artifact through the flow in artifactz.io service
  * @param extension task configuration
  */
+@CacheableTask
 open class PushArtifactTask @Inject constructor(
         private val extension: PushArtifactExtension
         ) : DefaultTask() {

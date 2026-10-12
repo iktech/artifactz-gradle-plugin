@@ -6,7 +6,9 @@ import io.iktech.artifactz.gradle.plugin.client.FeedbackImpl
 import io.iktech.artifactz.gradle.plugin.extensions.PublishArtifactExtension
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
+import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.TaskAction
+import org.gradle.work.DisableCachingByDefault
 import org.slf4j.LoggerFactory
 import javax.inject.Inject
 
@@ -14,6 +16,7 @@ import javax.inject.Inject
  * Push artifact task can be used to publish artifact details in artifactz.io service
  * @param extension task configuration
  */
+@CacheableTask
 open class PublishArtifactTask @Inject constructor(
     private val extension: PublishArtifactExtension
 ) : DefaultTask() {
