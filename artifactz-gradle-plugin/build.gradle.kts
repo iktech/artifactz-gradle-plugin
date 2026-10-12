@@ -2,16 +2,16 @@ import org.jetbrains.kotlin.gradle.utils.CommandFallback
 
 val tagName = System.getenv("RELEASE_TAG")
 group = "io.iktech"
-version = tagName ?: "1.1-SNAPSHOT"
+version = tagName ?: "1.2-SNAPSHOT"
 
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "2.2.21"
+    id("org.jetbrains.kotlin.jvm") version "2.4.21"
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "2.0.0"
+    id("com.gradle.plugin-publish") version "2.2.1"
 }
 
 
@@ -34,11 +34,11 @@ repositories {
 
 dependencies {
     // Align versions of all Kotlin components
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.2.21"))
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.4.20"))
 
     // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.21")
-    implementation("io.iktech:artifactz-client:1.4.5")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.20")
+    implementation("io.iktech:artifactz-client:1.5.1")
 
     testImplementation(gradleTestKit())
     // Use the Kotlin test library.
